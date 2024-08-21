@@ -1,0 +1,364 @@
+<script>
+
+console.log("TEST");
+var a;
+var b = 2;
+console.log(a) //uninitialized prints undefined
+a = 7;
+b = a;
+console.log(a)
+
+var c = "I am a";
+c = c + " string.";
+console.log(c) //case sensitive Capital C is not defined but lowercase is
+
+var sum = 10 + 10
+console.log("Sum: " + sum)
+
+var difference = 10 - 5
+console.log("Difference: " + difference)
+
+var product = 5 * 5
+console.log("Product: " + product)
+
+var quotient = 10 / 2
+console.log("Quotient: " + quotient)
+
+var increment = 6
+increment += 1
+//or
+increment++
+console.log("Increment: " + increment)
+
+var decrement = 6
+decrement -= 1
+//or
+decrement--
+console.log("Decrement: " + decrement)
+
+var decimalMult = 5.7 * 7.234
+console.log("Decimal Multiplication " + decimalMult)
+
+var remainder = 10 % 3 //will give 1
+console.log("Remainder " + remainder)
+
+var fName = "Hayden"
+var lName = "Amazon"
+fullName = fName + " " + lName
+console.log(fullName)
+
+var myStr = "FirstLine\n\t\\SecondLine\nThirdLine"
+console.log(myStr)
+
+var verb = "running"
+var sentence = "I am "
+sentence += verb
+console.log(sentence)
+
+
+
+
+var letterCount = "ASDFGHJK"
+letterCounter = letterCount.length
+letterFinder = letterCount[0]
+lastLetter = letterCount[letterCount.length - 1]	//weird syntax
+
+console.log(letterCounter)
+console.log(letterFinder)
+console.log(lastLetter)
+
+
+
+function wordBlanks(noun, adj, verb, adv) {
+	var result = ""
+	result += "The " + adj + " " + noun + " " + verb + " " + adv + "."
+
+	return result
+}
+console.log(wordBlanks("cat", "grey", "poops", "a lot"))
+console.log(wordBlanks("brother", "older", "runs", "often"))
+
+//array time
+
+var array = ["Megan", 21]	//1D array
+var array2 = [["Megan", 21], ["Hayden", 21]]	//2D array
+console.log(array)
+//edit array index
+array[0] = "Hayden"
+console.log(array)
+
+console.log(array2)
+
+var arrayEntry = array[0]
+console.log(arrayEntry)		//prints entry at given point []
+
+var largeArray = [[1,2,3],[4,5,6],[7,8,9],[[10,11,12],13,14]]
+var LAparser = largeArray[2][1]		//index for 8 above^
+console.log(LAparser)
+
+var firstHalf = ["Hayden", "Amazon"]
+firstHalf.push(["Megan", "Batchelor"])
+console.log(firstHalf)
+var deletedItem = firstHalf.pop()
+firstHalf.shift()
+console.log(firstHalf)
+firstHalf.unshift("Megan", "Batchelor")
+console.log(firstHalf)
+
+function test(a, b) { 	//parameters in ()
+	console.log(a - b)
+}
+test(10,5)
+
+function functionWArgs(a, b) {
+	console.log(a + b)
+}
+functionWArgs(10,5)
+
+
+
+function subtraction(num) {
+	return num - 8
+}
+console.log(subtraction(12))
+
+function multiplication(prod) {
+	return prod * 7
+}
+console.log(multiplication(7))
+
+
+//overriding established variable
+
+var changed = 1
+function change(num) {
+	return (num + 2) - 4
+}
+changed = change(40)
+console.log(changed)
+//changed changes after call to function
+
+
+//function for queues, yes already
+function nextInLine(arr, item) {
+	arr.push(item)
+	return arr.shift()
+}
+
+var myArr = [1,2,3,4,5]
+
+console.log("Before: " + JSON.stringify(myArr))
+console.log(nextInLine(myArr, 6))
+console.log("After: " + JSON.stringify(myArr))
+
+
+function trueFalse(isIt) {
+	if (isIt) {
+		return "Yes, it is!"
+	}
+	else {
+		return "Not true :("
+	}
+}
+
+console.log(trueFalse(false))
+
+function testingAnd(val) {
+	if (val >= 7 && val <= 9) {
+		console.log("Yes it is (AND)")
+	}
+}
+
+testingAnd(8)
+
+function testingOr(val) {
+	if (val >= 30 || val <= 1) {
+		console.log("Yes it is (OR)")
+	}
+}
+testingOr(38)
+
+function size(num) {
+	if (num < 5) {
+		return "Tiny"
+	}
+	else if (num < 10) {
+		return "Small"
+	}
+	else if (num < 15) {
+		return "Medium"
+	}
+	else if (num < 20) {
+		return "Large"
+	}
+	else {
+		return "Huge"
+	}
+}
+
+console.log(size(3))
+
+//
+var names = ["Hole-In-One", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home"]
+
+function golfScore(par, strokes) {
+	if (strokes == 1) {
+		return names[0]
+	}
+	else if (strokes <= par - 2) {
+		return names[1]
+	}
+	else if (strokes == par - 1) {
+		return names[2]
+	}
+	else if (strokes == par) {
+		return names[3]
+	}
+	else if (strokes == par + 1) {
+		return names[4]
+	}
+	else if (strokes == par + 2) {
+		return names[5]
+	}
+	else if (strokes >= par + 3) {
+		return names[6]
+	}
+}
+console.log(golfScore(5, 4))
+
+
+//switch statement
+function caseSwitch(val) {
+	var answer = ""
+
+	switch(val) {
+		case 1:
+			answer = "alpha"
+			break
+
+		//break is imperative otherwise it will run to second case 		statement		
+
+		case 2:
+			answer = "beta"
+			break
+		case 3:
+			answer = "sigma"
+			break
+		case 4: 
+			answer = "delta"
+			break
+		default:
+			answer = "NOT LISTED IN CASE"
+			break
+	}
+	return answer
+}
+
+console.log(caseSwitch(5))
+
+function secondCase(val) {
+	var answer = ""		//empty variable to be overridden
+
+	switch(val) {		//switch statement is nested
+		case 1:		//since no 'break' will flow into next case
+		case 2:
+		case 3:
+			answer = "LOW"
+			break
+		case 4:
+		case 5:
+		case 6:
+			answer = "HIGH"
+			break
+	}
+	return answer
+}
+console.log(secondCase(4))	//1-3 ot = 'LOW' | 4-6 ot = 'HIGH'
+
+function isLess(a, b) {
+	return (a < b)
+}
+console.log(isLess(5, 6))
+
+function isLessBetter(a, b) {
+	if (a < 0 || b < 0) { 
+		return undefined
+	}
+}
+console.log(isLessBetter(-4, 6))
+
+
+var count = 0
+function cardCount(card) {
+	switch(card) {
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+		case 6:
+			count++
+			break
+		case 10:
+		case "J":
+		case "Q":
+		case "K":
+		case "A":
+			count--
+			break
+	}
+	var holdBet = "Hold"
+	if (count > 0)
+		holdBet = "Bet"
+	return count + " " + holdBet
+}
+cardCount(4); cardCount("K"); cardCount(7); cardCount(10); cardCount("A"); 
+console.log(cardCount("K"))
+
+//objects!!!
+var megCat = {
+	"name of": "Skittles",
+	"legs": 4,
+	"dog": false,
+	"friends": ["Megan", "Hayden", "Sara"]
+}
+
+megCat["meow"] = "meow!"		//adds property to object
+delete megCat.dog			//deletes property from obj
+
+var legNum = megCat.legs
+console.log(legNum)
+
+var nameVal = megCat["name of"]
+console.log(nameVal)
+
+megCat.legs = 5			//overrides data in obj
+var catLegs = megCat.legs
+console.log(catLegs)
+
+//two ways of accessing object information
+
+var testObj = {
+	10: "Skittles",
+	11: "Megan",
+	12: "Hayden"
+}
+
+var friend = testObj[10]
+console.log(friend)
+
+function phoneticLookup(val) {
+	var result = ""
+
+	var lookup = {
+		"alpha" : "adams",
+		"beta" : "ben",
+		"cappa" : "charlie"
+
+	}
+	result = lookup[val]
+	return result
+}
+console.log(phoneticLookup("cappa"))
+
+
+</script>
